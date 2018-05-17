@@ -1,15 +1,15 @@
 package com.rrtoyewx.mediarecoderdemo;
 
+import android.Manifest;
 import android.content.Intent;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.VideoView;
 
 import java.io.IOException;
 
@@ -25,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActivityCompat.requestPermissions(this, new String[]{
+                Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 100);
+
         surfaceView = (SurfaceView) findViewById(R.id.surface_view);
         recordAudio = (Button) findViewById(R.id.record_audio);
         recordAudio.setOnClickListener(new View.OnClickListener() {
