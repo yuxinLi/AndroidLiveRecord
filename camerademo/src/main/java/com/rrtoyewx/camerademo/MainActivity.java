@@ -1,10 +1,11 @@
 package com.rrtoyewx.camerademo;
 
+import android.Manifest;
 import android.content.Intent;
-import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -33,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ActivityCompat.requestPermissions(this, new String[]{
+                Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 100);
 
         mPreviewContainer = (FrameLayout) findViewById(R.id.camera_preview);
         mCameraPreviewLayout = new CameraPreviewLayout(this);

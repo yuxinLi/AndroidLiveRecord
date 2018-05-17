@@ -29,7 +29,9 @@ public class CameraUtil {
     public static Camera getCameraInstance() {
         int numberOfCameras = Camera.getNumberOfCameras();
         Log.e(Constants.TAG, "numberOfCameras:" + numberOfCameras);
-        return Camera.open();
+        Camera camera = Camera.open();
+        camera.setDisplayOrientation(90);
+        return camera;
     }
 
 }

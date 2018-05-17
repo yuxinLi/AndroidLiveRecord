@@ -67,7 +67,7 @@ public class CameraPreviewLayout extends SurfaceView {
                         Log.e(Constants.TAG,data.toString()+"setPreviewCallback");
                     }
                 });
-                mCamera.startFaceDetection();
+//                mCamera.startFaceDetection();
 
                 //  mCamera.setDisplayOrientation(90);
                 mCamera.setPreviewDisplay(holder);
@@ -189,6 +189,8 @@ public class CameraPreviewLayout extends SurfaceView {
                 });
 
                 return true;
+            default:
+                break;
 
         }
 
