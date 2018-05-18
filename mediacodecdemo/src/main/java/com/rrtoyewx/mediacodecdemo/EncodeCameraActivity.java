@@ -144,6 +144,7 @@ public class EncodeCameraActivity extends AppCompatActivity implements SurfaceHo
     private void initCamera() {
         releaseCamera();
         camera = Camera.open();
+        camera.setDisplayOrientation(90);
         Camera.Parameters parameters = camera.getParameters();
         parameters.setPreviewSize(640, 480);
         parameters.setPictureSize(640, 480);
